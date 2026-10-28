@@ -30,7 +30,40 @@ STEP-8: Repeat the above steps to generate the entire cipher text.
 
 
 ## PROGRAM
+```
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char text[100], rail[10][100];
+    int i, j, k = 0, r = 2, len;
+
+    printf("Enter text: ");
+    scanf("%99s", text);
+
+    len = strlen(text);
+
+    for (i = 0; i < r; i++)
+        for (j = 0; j < len; j++)
+            rail[i][j] = '\0';
+
+    for (i = 0; i < len; i++)
+        rail[i % r][i] = text[i];
+
+    printf("Encrypted text: ");
+    for (i = 0; i < r; i++)
+        for (j = 0; j < len; j++)
+            if (rail[i][j] != '\0')
+                printf("%c", rail[i][j]);
+
+    return 0;
+}
+```
 
 ## OUTPUT
+<img width="1106" height="740" alt="image" src="https://github.com/user-attachments/assets/54aa622a-3e0b-4e7f-9b9e-6a070362d9f8" />
+
 
 ## RESULT
+Thus, The above Vignere Cipher Program is executed successfully.
